@@ -1,69 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 /**
-  * _isdigit - tells if the string consists of digits
-  * @argv: pointer to current item in argument
-  * Return: return 0 if all digits, 1 if not all digits.
+  * _abs - get absolute value
+  * @n: number to calculate
+  * Return: absolute value of the number
   */
-int _isdigit(char *argv)
+int _abs(int n)
 {
-	int i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (argv[i] >= '0' && argv[i] <= '9')
-			i++;
-		else
-			return (1);
-	}
-	return (0);
+	n < 0 ? (n *= -1) : (n = n);
+	return (n);
 }
 /**
-  * _atoi - converts a string of ascii digits to the values they represent
-  * @s: pointer to the source string
-  * Return: value of digits
+  * array_range - creates an array of integers
+  * @min: minimum value
+  * @max: maximum value
+  * Return: pointer to array of integers
   */
-int _atoi(char *s)
+int *array_range(int min, int max)
 {
-	int i, result;
+	int *p;
+	int range, i;
 
-	i = result = 0;
-	while (s[i])
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			result *= 10;
-			result += (s[i] - '0');
-		}
-		i++;
-	}
-	return (result);
-}
-/**
-  * main - main function call
-  * @argc: argument count
-  * @argv: 2D array of arguments
-  * Return: return 0 on success, 98 on failure
-  */
-int main(int argc, char *argv[])
-{
-	int i;
-
-	malloc();
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	for (i = 1; i < argc; i++)
-	{
-		if (_isdigit(argv[i]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	}
-	return (0);
+	if (min > max)
+		return (NULL);
+	range = max - min + 1;
+	p = malloc(range * sizeof(*p));
+	if (p == NULL)
+		return (NULL);
+	for (i = 0; i < range; min++, i++)
+		p[i] = min;
+	return (p);
 }
