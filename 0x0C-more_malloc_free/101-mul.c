@@ -10,29 +10,36 @@
  * Return: int
 **/
 
-int main(int argc, char *argv[])
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned long mul;
-	int i, j;
+	unsigned int l1, i, e;
+	char *a;
 
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+	if (s1 == NULL)
+		s1 = "";
 
-	for (i = 1; i < argc; i++)
+	if (s2 == NULL)
+		s2 = "";
+	l1 = 0;
+	while (s1[l1])
+		l1++;
+
+	a = malloc(sizeof(*a) * l1 + n + 1);
+
+	if (a == NULL)
+		return (NULL);
+
+	for (i = 0, e = 0; i < (l1 + n); i++)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
+		if (i < l1)
 		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{
-				printf("Error\n");
-				exit(98);
-			}
+			a[i] = s1[i];
+		}
+		else
+		{
+			a[i] = s2[e++];
 		}
 	}
-	mul = atol(argv[1]) * atol(argv[2]);
-	printf("%lu\n", mul);
-	return (0);
+	a[i] = '\0';
+	return (a);
 }
