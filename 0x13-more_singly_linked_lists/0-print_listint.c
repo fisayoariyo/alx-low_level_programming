@@ -6,7 +6,7 @@
  *
  *Return: num of nodes
  */
-
+typedef struct listint_s
 size_t print_listint(const listint_t *h);
 {
 	size_t nodes = 0;
