@@ -1,19 +1,19 @@
 #include "lists.h"
-#include <stdio.h>
 /**
- *print_listint to  print list
- *return -size_t
- *then @h: the list
+ *print_listint - to  print list
+ *
+ *@h: the list
+ *Return: num
  */
 size_t print_listint(const listint_t *h)
 {
-	int nodes = h;
+	size_t num = 0;
 
 	while (h)
 	{
 		printf("%d\n", h->n);
+		num++;
 		h = h->next;
-		nodes++;
 	}
-	return (h);
+	return (num);
 }
