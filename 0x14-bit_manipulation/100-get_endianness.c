@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * int get_endianness(void)- to check the endianness.
+ *get_endianness- to check the endianness.
  *
- * Retuurn: 0 if big endian
+ * Return: 0 if big endian
  *        1 if small endian
  */
 
