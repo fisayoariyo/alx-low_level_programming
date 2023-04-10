@@ -5,7 +5,7 @@
  *
  * @b : this is the string holding the binary number
  *
- * Return the converted number
+ * Return: the converted number
  */
 
 unsigned int binary_to_uint(const char *b)
