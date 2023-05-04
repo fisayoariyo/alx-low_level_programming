@@ -21,13 +21,13 @@ unsigned int binary_to_uint(const char *b)
 	j = 0;
 	while (b[i])
 	{
-		if((b[j] != '0') && (b[j] != '1'))
+		if ((b[j] != '0') && (b[j] != '1'))
 			return (not_binary);
 
 		if ([j] == '1')
-			num += (1 *(1 << len));
+			num += (1 * (1 << len));
 		j++;
-		len --;
+		len--;
 	}
 
 	return (num);
