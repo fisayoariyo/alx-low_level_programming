@@ -1,47 +1,23 @@
 #include "main.h"
 
 /**
- * _strlen - lenght of string
- * @s:char
- * Return:int
- */
-int _strlen(const char *s)
-{
-	int i;
-
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			continue;
-		}
-		return (i);
-}
-/**
- * binary_to_uint - convert binary to unsigned int
- * @b:string from 0 and 1 else NULL
+ * binary_to_uint - Converts a binary number to an unsigned int.
+ * @b: A pointer to a string of 0 and 1 chars
  *
- * Return:unsigned int
+ * Return: If b is NULL or is not 0 or 1 - 0. Else - the converted number.
  */
+
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int k = 1;
-	unsigned int i = 0;
-	int c;
-	unsigned int len;
-
-	if (*b == NULL)
-		return (0);
-
-	len = _strlen(b);
-
-	for (c = len - 1; c >= 0; c--)
-	{
-	if (b[c] != '0' && b[c] != '1')
-		return (0);
-	if (b[c] == '1')
-	{
-		i += k;
+	unsigned int num = 0;
+	int i = 0;
+	if (b == NULL)
+		return 0;
+	while (b[i] == '0' || b[i] == '1')
+	{  /**Found another digit.**/
+		num <<= 1;
+		num += b[i]-'0';
+		i++;
 	}
-	k *= 2;
-}
-	return (i);
+	return (num);
 }
